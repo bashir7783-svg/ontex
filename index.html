@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Elegant Profile · Md. Bashir Ahamed</title>
+  <!-- Google Fonts for refined typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600&display=swap" rel="stylesheet">
+  <!-- Font Awesome for delicate icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      background: radial-gradient(circle at 10% 30%, #f9f2ff, #e5d4f5 90%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Inter', sans-serif;
+      padding: 1.5rem;
+      margin: 0;
+      backdrop-filter: blur(2px);
+    }
+
+    /* ---------- main card · soft luxury ---------- */
+    .profile-card {
+      width: 100%;
+      max-width: 460px;
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-radius: 48px 48px 40px 40px;
+      box-shadow: 
+        0 35px 55px -18px rgba(90, 50, 130, 0.4),
+        0 0 0 1px rgba(255, 255, 255, 0.7) inset,
+        0 0 30px rgba(200, 160, 255, 0.2);
+      padding: 2.2rem 2rem 2rem;
+      transition: all 0.4s cubic-bezier(0.2, 0.9, 0.3, 1);
+      border: 1px solid rgba(255, 255, 255, 0.9);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .profile-card::before {
+      content: "";
+      position: absolute;
+      top: -30%;
+      left: -20%;
+      width: 50%;
+      height: 35%;
+      background: radial-gradient(circle, rgba(220, 190, 255, 0.25), transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .profile-card:hover {
+      transform: translateY(-8px) scale(1.01);
+      box-shadow: 0 45px 70px -20px #7b4fa0, 0 0 0 1px #ffffff inset;
+    }
+
+    /* ---------- carousel · refined ---------- */
+    .carousel {
+      position: relative;
+      width: 140px;
+      height: 140px;
+      margin: 0 auto 0.8rem;
+      border-radius: 50%;
+      padding: 6px;
+      background: linear-gradient(135deg, #f0d6ff, #c8a2ff, #a7d0ff);
+      box-shadow: 0 15px 25px -8px rgba(130, 70, 180, 0.4);
+      z-index: 1;
+    }
+
+    .carousel .img-container {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      overflow: hidden;
+      background: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 3px solid rgba(255, 255, 255, 0.95);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05) inset;
+    }
+
+    .carousel .img-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: opacity 0.4s ease-in-out;
+    }
+
+    /* indicator dots — subtle */
+    .carousel-indicators {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 10px;
+      margin-bottom: 0.2rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .carousel-indicators span {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba(170, 130, 210, 0.3);
+      transition: all 0.35s ease;
+      cursor: default;
+    }
+
+    .carousel-indicators span.active {
+      background: linear-gradient(145deg, #b082e0, #8a4fd0);
+      width: 28px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(150, 80, 200, 0.3);
+    }
+
+    /* ---------- name & badge · elegant ---------- */
+    .name {
+      text-align: center;
+      font-size: 2rem;
+      font-weight: 600;
+      letter-spacing: -0.03em;
+      background: linear-gradient(135deg, #3a2355, #5e3d82);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin: 0.5rem 0 0.1rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .badge {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: #62478a;
+      background: rgba(220, 200, 255, 0.35);
+      padding: 0.35rem 1.3rem;
+      border-radius: 60px;
+      width: fit-content;
+      margin: 0.2rem auto 1.5rem;
+      backdrop-filter: blur(6px);
+      border: 1px solid rgba(210, 180, 255, 0.7);
+      letter-spacing: 0.2px;
+      box-shadow: 0 4px 12px rgba(180, 140, 240, 0.15);
+      position: relative;
+      z-index: 1;
+    }
+
+    .badge i {
+      font-size: 0.8rem;
+      color: #9b6ee8;
+    }
+
+    /* ---------- message box · clean & airy ---------- */
+    .message-box {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin: 1rem 0 0.8rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .message-box textarea {
+      width: 100%;
+      border: 1.5px solid #e7d9f5;
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(4px);
+      border-radius: 28px;
+      padding: 1.2rem 1.4rem;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.95rem;
+      resize: none;
+      outline: none;
+      transition: all 0.25s;
+      color: #2e1e44;
+      box-shadow: 0 4px 12px rgba(150, 100, 200, 0.05) inset;
+      line-height: 1.5;
+    }
+
+    .message-box textarea:focus {
+      border-color: #b485e6;
+      box-shadow: 0 0 0 5px rgba(180, 133, 230, 0.15), 0 4px 16px rgba(150, 80, 200, 0.1);
+      background: #ffffff;
+    }
+
+    .message-box textarea::placeholder {
+      color: #b29fca;
+      font-weight: 300;
+      letter-spacing: 0.2px;
+    }
+
+    .btn-send {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: linear-gradient(105deg, #b78af0, #9b5ee0, #8a4fd0);
+      border: none;
+      border-radius: 40px;
+      padding: 0.95rem 1.8rem;
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      font-size: 1rem;
+      color: white;
+      letter-spacing: 0.4px;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.2, 0.9, 0.3, 1);
+      box-shadow: 0 14px 22px -10px #9b62df, 0 0 0 1px rgba(255, 255, 255, 0.2) inset;
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      width: 100%;
+      position: relative;
+      z-index: 1;
+    }
+
+    .btn-send i {
+      font-size: 1.05rem;
+      transition: transform 0.25s;
+    }
+
+    .btn-send:hover {
+      background: linear-gradient(105deg, #a97aeb, #8847d4, #7a3fc7);
+      box-shadow: 0 18px 28px -10px #8a4fd0, 0 0 0 1px rgba(255, 255, 255, 0.3) inset;
+      transform: scale(1.02);
+    }
+
+    .btn-send:hover i {
+      transform: translateX(4px) scale(1.05);
+    }
+
+    .btn-send:active {
+      transform: scale(0.98);
+    }
+
+    .small-note {
+      font-size: 0.73rem;
+      text-align: center;
+      color: #9b82b8;
+      margin-top: 2px;
+      margin-bottom: 0.3rem;
+      letter-spacing: 0.3px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      font-weight: 400;
+      position: relative;
+      z-index: 1;
+    }
+
+    .small-note i {
+      color: #b28ae0;
+      font-size: 0.7rem;
+    }
+
+    /* ---------- floral vase & signature · artistic ---------- */
+    .floral-vase {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-top: 1.5rem;
+      margin-bottom: 0.2rem;
+      padding: 0 0.3rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .vase-graphic {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      filter: drop-shadow(0 8px 10px rgba(150, 100, 200, 0.25));
+      transition: transform 0.3s;
+    }
+
+    .vase-graphic:hover {
+      transform: translateY(-2px);
+    }
+
+    .flowers {
+      display: flex;
+      align-items: flex-end;
+      gap: 3px;
+      margin-bottom: -8px;
+      margin-left: 6px;
+    }
+
+    .flower {
+      width: 30px;
+      height: 30px;
+      border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+      transform: rotate(10deg);
+      box-shadow: 0 3px 8px rgba(160, 90, 190, 0.25);
+      transition: transform 0.2s;
+    }
+
+    .flower:hover {
+      transform: rotate(0deg) scale(1.1);
+    }
+
+    .f1 { background: radial-gradient(circle at 30% 30%, #ffb3d9, #f26bb5); }
+    .f2 { background: radial-gradient(circle at 30% 30%, #ffdd9a, #f7b32b); transform: rotate(-15deg) scale(0.9); }
+    .f3 { background: radial-gradient(circle at 30% 30%, #c1a9ff, #8b5cf6); transform: rotate(25deg); }
+    .f4 { background: radial-gradient(circle at 30% 30%, #a7e0ff, #3b9eff); transform: rotate(-8deg) scale(0.95); }
+    .f5 { background: radial-gradient(circle at 30% 30%, #f9b0ff, #d946ef); transform: rotate(15deg); }
+
+    .vase-body {
+      width: 60px;
+      height: 52px;
+      background: linear-gradient(140deg, #e6d6ff, #c7a9f0, #b48be0);
+      border-radius: 0 0 32px 32px / 0 0 45px 45px;
+      border: 2px solid rgba(255, 255, 255, 0.9);
+      box-shadow: 0 12px 18px -6px #b48be0, inset 0 -5px 8px rgba(80, 30, 110, 0.1);
+      position: relative;
+      margin-top: -5px;
+    }
+
+    .vase-body::before {
+      content: "";
+      position: absolute;
+      top: -7px;
+      left: 9px;
+      width: 38px;
+      height: 11px;
+      background: #dac5ff;
+      border-radius: 12px 12px 0 0;
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      border-bottom: none;
+      box-shadow: 0 -2px 6px rgba(200, 160, 255, 0.3);
+    }
+
+    /* signature — handwritten touch */
+    .signature {
+      font-family: 'Great Vibes', cursive;
+      font-size: 2.4rem;
+      color: #4b2f6b;
+      text-shadow: 2px 2px 10px rgba(180, 130, 240, 0.5);
+      letter-spacing: 1.5px;
+      transform: rotate(-2deg);
+      border-bottom: 2.5px dashed rgba(158, 119, 220, 0.6);
+      padding-bottom: 0.1rem;
+      line-height: 1.1;
+      margin-bottom: 0.4rem;
+      transition: color 0.2s;
+    }
+
+    .signature:hover {
+      color: #5f3a8a;
+    }
+
+    .signature small {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.72rem;
+      display: block;
+      text-align: right;
+      color: #896bb0;
+      letter-spacing: 1px;
+      margin-top: -4px;
+      text-transform: uppercase;
+      font-weight: 400;
+    }
+
+    /* ---------- toast · refined ---------- */
+    .toast {
+      position: fixed;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%) translateY(20px);
+      background: rgba(40, 20, 60, 0.95);
+      backdrop-filter: blur(12px);
+      color: #f0e6ff;
+      padding: 0.9rem 2.2rem;
+      border-radius: 80px;
+      font-size: 0.92rem;
+      font-weight: 500;
+      box-shadow: 0 20px 35px -12px #3a1a5a, 0 0 0 1px rgba(200, 160, 255, 0.3) inset;
+      opacity: 0;
+      transition: opacity 0.4s, transform 0.4s;
+      pointer-events: none;
+      z-index: 9999;
+      white-space: nowrap;
+      border: 1px solid rgba(210, 170, 255, 0.5);
+      letter-spacing: 0.3px;
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    /* leaf accent */
+    .leaf {
+      font-size: 1.8rem;
+      line-height: 1;
+      color: #7bb86a;
+      margin-right: 5px;
+      text-shadow: 0 3px 6px #b6e0b0;
+      transform: rotate(-12deg);
+    }
+
+    /* fa envelope subtle */
+    .fa-envelope {
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+
+<div class="profile-card">
+  <!-- rotating profile images -->
+  <div class="carousel">
+    <div class="img-container">
+      <img id="profileImage" src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=600" alt="profile">
+    </div>
+  </div>
+  <div class="carousel-indicators">
+    <span class="active"></span>
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <!-- name & title -->
+  <div class="name">Md. Bashir Ahamed</div>
+  <div class="badge">
+    <i class="fas fa-code"></i> Programmer &nbsp;·&nbsp; <i class="fas fa-envelope"></i> reach out
+  </div>
+
+  <!-- message form -->
+  <div class="message-box">
+    <textarea id="messageInput" rows="3" placeholder="Write a message to Bashir..."></textarea>
+    <button class="btn-send" id="sendBtn">
+      <i class="fas fa-paper-plane"></i> Send to Gmail
+    </button>
+    <div class="small-note">
+      <i class="fas fa-shield-alt"></i> your message will be delivered to his inbox
+    </div>
+  </div>
+
+  <!-- FLOWER VASE & SIGNATURE -->
+  <div class="floral-vase">
+    <div class="vase-graphic">
+      <div class="flowers">
+        <div class="flower f1"></div>
+        <div class="flower f2"></div>
+        <div class="flower f3"></div>
+        <div class="flower f4"></div>
+        <div class="flower f5"></div>
+      </div>
+      <div class="vase-body"></div>
+    </div>
+    <div class="signature">
+       Bashir
+      <small>programmer</small>
+    </div>
+  </div>
+</div>
+
+<!-- toast for feedback -->
+<div id="toast" class="toast">✉️ Message sent to Bashir's Gmail!</div>
+
+<script>
+  (function() {
+    // ---------- CONFIGURATION ----------
+    // 👇 REPLACE WITH THE RECIPIENT'S GMAIL (Bashir's actual email)
+    const RECIPIENT_EMAIL = "md.bashir.ahamed@gmail.com";  // change this!
+
+    // profile image URLs (4 different images)
+    const images = [
+      "images/IMG_1867.jpg",
+      "images/E657C209-FCC5-4A05-9B75-72C587B4D6AE.jpg",
+      "images/IMG_6800.jpg",
+      "images/2018-06-20-09-54-04-328.jpg"
+    ];
+
+    const imgElement = document.getElementById('profileImage');
+    const indicators = document.querySelectorAll('.carousel-indicators span');
+    let currentIndex = 0;
+    let intervalId = null;
+
+    // preload images for smooth transition
+    images.forEach(src => {
+      const img = new Image();
+      img.src = src;
+    });
+
+    // update image with fade
+    function updateImage(index) {
+      if (index === currentIndex) return;
+      
+      // fade out
+      imgElement.style.opacity = '0';
+      
+      setTimeout(() => {
+        imgElement.src = images[index];
+        imgElement.style.opacity = '1';
+        
+        // update indicators
+        indicators.forEach((dot, i) => {
+          if (i === index) dot.classList.add('active');
+          else dot.classList.remove('active');
+        });
+      }, 150);
+      
+      currentIndex = index;
+    }
+
+    // start carousel
+    function startCarousel() {
+      if (intervalId) clearInterval(intervalId);
+      intervalId = setInterval(() => {
+        const nextIndex = (currentIndex + 1) % images.length;
+        updateImage(nextIndex);
+      }, 3000); // 3 seconds
+    }
+
+    // initial set + start
+    imgElement.src = images[0];
+    imgElement.style.opacity = '1';
+    startCarousel();
+
+    // optional: click on indicator not needed, but we keep it simple.
+
+    // ---------- MESSAGE SENDING via Gmail ----------
+    const sendBtn = document.getElementById('sendBtn');
+    const messageInput = document.getElementById('messageInput');
+    const toast = document.getElementById('toast');
+
+    function showToast(text) {
+      toast.textContent = text || "✉️ Message sent to Bashir's Gmail!";
+      toast.classList.add('show');
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 2800);
+    }
+
+    function sendMessage() {
+      const message = messageInput.value.trim();
+      if (!message) {
+        showToast("✏️ Please write a message first.");
+        return;
+      }
+
+      // Build the mailto link: recipient, subject, body
+      const subject = encodeURIComponent("Message from your profile card ✨");
+      const body = encodeURIComponent(message + "\n\n— sent via profile card");
+      
+      // Construct Gmail compose URL (using mail.google.com for Gmail direct)
+      // Using https://mail.google.com/mail/?view=cm&fs=1&to=...&su=...&body=... 
+      // This opens Gmail compose (if user logged in) with prefilled data.
+      const gmailComposeUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${RECIPIENT_EMAIL}&su=${subject}&body=${body}`;
+      
+      // Open in new tab
+      window.open(gmailComposeUrl, '_blank');
+      
+      // Show confirmation toast
+      showToast("✉️ Gmail compose opened — check & send!");
+      
+      // Optionally clear the message? Not clearing to allow editing.
+      // You could clear: messageInput.value = ''; but maybe they want to see it.
+    }
+
+    // send on button click
+    sendBtn.addEventListener('click', sendMessage);
+
+    // also send with Ctrl+Enter inside textarea (convenience)
+    messageInput.addEventListener('keydown', (e) => {
+      if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
+        e.preventDefault();
+        sendMessage();
+      }
+    });
+
+    // Make it clear that the recipient email is configurable (for demo)
+    // Just for safety: if the recipient email is still the placeholder, alert?
+    // We'll leave it as is; the user should change it.
+  })();
+</script>
+<!-- 
+  ⚠️ IMPORTANT: Replace RECIPIENT_EMAIL in the script with Md. Bashir Ahamed's actual Gmail.
+  The current one is a placeholder. 
+-->
+</body>
+</html>
